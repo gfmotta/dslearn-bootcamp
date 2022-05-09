@@ -1,9 +1,9 @@
 package com.devsuperior.dslearnbds.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +36,7 @@ public class Section implements Serializable {
 	private Section prerequisite;
 	
 	@OneToMany(mappedBy = "section")
-	private Set<Lesson> lessons = new HashSet<>();
+	private List<Lesson> lessons = new ArrayList<>();
 	
 	public Section() {
 		
@@ -108,7 +108,7 @@ public class Section implements Serializable {
 		this.prerequisite = prerequisite;
 	}
 
-	public Set<Lesson> getLessons() {
+	public List<Lesson> getLessons() {
 		return lessons;
 	}
 
