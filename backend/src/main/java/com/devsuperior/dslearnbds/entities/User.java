@@ -94,6 +94,15 @@ public class User implements UserDetails, Serializable {
 		return notifications;
 	}
 
+	public boolean hasAuthority(String authority) {
+		for (Role role : roles) {
+			if (role.getAuthority().equals(authority)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles;
